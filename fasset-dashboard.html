@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<title>FASSET — Designer Dashboard / Upload</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="assets/fasset.css" />
+</head>
+<body class="fasset">
+
+<div class="f-frame-label">5 — Designer Dashboard / Upload</div>
+
+<header class="f-navbar f-navbar-simple">
+  <a class="f-logo" href="fasset-home.html"><span class="f-logo-mark"></span>FASSET</a>
+  <nav class="f-nav-links">
+    <a href="fasset-dashboard.html">Dashboard</a>
+    <a href="#">My designs</a>
+    <a href="#">Earnings</a>
+    <a href="#">Licenses</a>
+  </nav>
+  <div class="f-nav-right">
+    <span class="f-role-pill">DESIGNER</span>
+    <span class="f-user-dot"></span>
+  </div>
+</header>
+
+<div class="f-dash-layout">
+
+  <aside class="f-dash-sidebar">
+    <a class="is-active" href="#">Dashboard</a>
+    <a href="#">My designs</a>
+    <a href="#">Upload design</a>
+    <a href="#">Earnings</a>
+    <a href="#">Licenses</a>
+    <a href="#">Payouts</a>
+    <a href="#">Settings</a>
+  </aside>
+
+  <main class="f-dash-main">
+    <h1 class="f-page-title" style="margin-bottom:20px;">Designer dashboard</h1>
+
+    <div class="f-stat-grid">
+      <div class="f-stat-card">
+        <div class="f-stat-label">Total earnings</div>
+        <div class="f-stat-value">Rp 12.400.000</div>
+      </div>
+      <div class="f-stat-card">
+        <div class="f-stat-label">Designs sold</div>
+        <div class="f-stat-value">34</div>
+      </div>
+      <div class="f-stat-card">
+        <div class="f-stat-label">Active listings</div>
+        <div class="f-stat-value">12</div>
+      </div>
+      <div class="f-stat-card">
+        <div class="f-stat-label">Pending review</div>
+        <div class="f-stat-value">3</div>
+      </div>
+    </div>
+
+    <div class="f-upload-card">
+      <h3>Upload a new design</h3>
+
+      <div class="f-dropzone">
+        <div class="f-dz-title">↑ Drag &amp; drop tech pack, artwork &amp; preview</div>
+        <div class="f-dz-sub">PDF, AI, SVG, PNG · or click to browse</div>
+      </div>
+
+      <div class="f-form-grid">
+        <div class="f-form-field">
+          <label>Design title</label>
+          <input type="text" placeholder="e.g. Oversized Streetwear Hoodie" />
+        </div>
+        <div class="f-form-field">
+          <label>Style</label>
+          <select><option>Streetwear</option></select>
+        </div>
+        <div class="f-form-field">
+          <label>Target market</label>
+          <select><option>Unisex</option></select>
+        </div>
+        <div class="f-form-field">
+          <label>Production complexity</label>
+          <select><option>Medium</option></select>
+        </div>
+        <div class="f-form-field">
+          <label>License type</label>
+          <select><option>Standard</option></select>
+        </div>
+        <div class="f-form-field">
+          <label>Price (Rp)</label>
+          <input type="text" placeholder="450.000" />
+        </div>
+      </div>
+
+      <div class="f-toggle-row">
+        <span class="f-toggle"></span>
+        <div class="f-toggle-text">
+          <p class="f-tt-title">Auto-apply watermark to previews</p>
+          <p>Buyers see protected previews until purchase.</p>
+        </div>
+      </div>
+
+      <div class="f-form-actions">
+        <button class="f-btn f-btn-outline">Save draft</button>
+        <button class="f-btn f-btn-dark">Publish to marketplace</button>
+      </div>
+    </div>
+
+    <div class="f-table-card">
+      <h3>My designs</h3>
+      <table class="f-table">
+        <thead>
+          <tr>
+            <th>Design</th>
+            <th>Style</th>
+            <th>License</th>
+            <th>Price</th>
+            <th>Sales</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Oversized Hoodie</td>
+            <td>Streetwear</td>
+            <td>Standard</td>
+            <td>Rp 450.000</td>
+            <td>18</td>
+            <td><span class="f-status-live">LIVE</span></td>
+          </tr>
+          <tr>
+            <td>Batik-Fusion Shirt</td>
+            <td>Ethnic</td>
+            <td>Exclusive</td>
+            <td>Rp 3.500.000</td>
+            <td>2</td>
+            <td><span class="f-status-live">LIVE</span></td>
+          </tr>
+          <tr>
+            <td>Cargo Techwear</td>
+            <td>Techwear</td>
+            <td>Royalty</td>
+            <td>Rp 150.000+3%</td>
+            <td>9</td>
+            <td><span class="f-status-live">LIVE</span></td>
+          </tr>
+          <tr>
+            <td>Modest Abaya</td>
+            <td>Formal</td>
+            <td>Standard</td>
+            <td>Rp 480.000</td>
+            <td>5</td>
+            <td><span class="f-status-review">IN REVIEW</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
