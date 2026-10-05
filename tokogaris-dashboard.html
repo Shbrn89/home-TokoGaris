@@ -8,17 +8,15 @@
 </head>
 <body class="tokogaris">
 
-<div class="f-frame-label">5 — Designer Dashboard / Upload</div>
-
 <header class="f-navbar f-navbar-simple">
   <a class="f-logo" href="tokogaris-home.html"><span class="f-logo-mark"></span>TokoGaris</a>
   <input type="checkbox" class="f-nav-toggle-input" id="nav-toggle" />
   <label class="f-nav-toggle" for="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></label>
   <nav class="f-nav-links">
     <a href="tokogaris-dashboard.html">Dashboard</a>
-    <a href="#">My designs</a>
-    <a href="#">Earnings</a>
-    <a href="#">Licenses</a>
+    <a href="#" data-toast="Halaman 'My designs' belum tersedia di prototype ini">My designs</a>
+    <a href="#" data-toast="Halaman 'Earnings' belum tersedia di prototype ini">Earnings</a>
+    <a href="#" data-toast="Halaman 'Licenses' belum tersedia di prototype ini">Licenses</a>
   </nav>
   <div class="f-nav-right">
     <span class="f-role-pill">DESIGNER</span>
@@ -28,14 +26,14 @@
 
 <div class="f-dash-layout">
 
-  <aside class="f-dash-sidebar">
-    <a class="is-active" href="#">Dashboard</a>
-    <a href="#">My designs</a>
-    <a href="#">Upload design</a>
-    <a href="#">Earnings</a>
-    <a href="#">Licenses</a>
-    <a href="#">Payouts</a>
-    <a href="#">Settings</a>
+  <aside class="f-dash-sidebar" id="dash-sidebar">
+    <a class="is-active" href="#" data-toast="Anda sudah berada di Dashboard">Dashboard</a>
+    <a href="#" data-toast="Halaman 'My designs' belum tersedia di prototype ini">My designs</a>
+    <a href="#" data-toast="Halaman 'Upload design' belum tersedia di prototype ini">Upload design</a>
+    <a href="#" data-toast="Halaman 'Earnings' belum tersedia di prototype ini">Earnings</a>
+    <a href="#" data-toast="Halaman 'Licenses' belum tersedia di prototype ini">Licenses</a>
+    <a href="#" data-toast="Halaman 'Payouts' belum tersedia di prototype ini">Payouts</a>
+    <a href="#" data-toast="Halaman 'Settings' belum tersedia di prototype ini">Settings</a>
   </aside>
 
   <main class="f-dash-main">
@@ -96,7 +94,7 @@
       </div>
 
       <div class="f-toggle-row">
-        <span class="f-toggle"></span>
+        <button type="button" class="f-toggle is-on" id="watermark-toggle" role="switch" aria-checked="true" aria-label="Auto-apply watermark to previews"></button>
         <div class="f-toggle-text">
           <p class="f-tt-title">Auto-apply watermark to previews</p>
           <p>Buyers see protected previews until purchase.</p>
@@ -104,8 +102,8 @@
       </div>
 
       <div class="f-form-actions">
-        <button class="f-btn f-btn-outline">Save draft</button>
-        <button class="f-btn f-btn-dark">Publish to marketplace</button>
+        <button class="f-btn f-btn-outline" type="button" id="save-draft-btn">Save draft</button>
+        <button class="f-btn f-btn-dark" type="button" id="publish-btn">Publish to marketplace</button>
       </div>
     </div>
 
@@ -162,5 +160,8 @@
   </main>
 </div>
 
+<div class="f-toast" id="toast"></div>
+
+<script src="assets/tokogaris.js"></script>
 </body>
 </html>

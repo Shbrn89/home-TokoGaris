@@ -8,17 +8,15 @@
 </head>
 <body class="tokogaris">
 
-<div class="f-frame-label">4 — Checkout / License Agreement</div>
-
 <header class="f-navbar f-navbar-simple">
   <a class="f-logo" href="tokogaris-home.html"><span class="f-logo-mark"></span>TokoGaris</a>
   <input type="checkbox" class="f-nav-toggle-input" id="nav-toggle" />
   <label class="f-nav-toggle" for="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></label>
   <nav class="f-nav-links">
     <a href="tokogaris-catalog.html">Browse designs</a>
-    <a href="#">Sell your work</a>
-    <a href="#">Pricing</a>
-    <a href="#">How it works</a>
+    <a href="#" data-toast="Halaman 'Sell your work' belum tersedia di prototype ini">Sell your work</a>
+    <a href="#" data-toast="Halaman 'Pricing' belum tersedia di prototype ini">Pricing</a>
+    <a href="#" data-toast="Halaman 'How it works' belum tersedia di prototype ini">How it works</a>
   </nav>
   <div class="f-nav-right">
     <span class="f-role-pill">BUYER</span>
@@ -57,7 +55,7 @@
           <li><strong>Termination</strong> — license is recorded on-platform and tied to this transaction ID.</li>
         </ol>
         <label class="f-agree-check">
-          <input type="checkbox" checked />
+          <input type="checkbox" id="agree-checkbox" checked />
           I have read and agree to the license terms and copyright policy.
         </label>
       </div>
@@ -65,7 +63,7 @@
       <div class="f-card-box">
         <h3>3 · Payment method</h3>
 
-        <div class="f-payment-option is-selected">
+        <div class="f-payment-option is-selected" data-method="Bank transfer / Virtual account" tabindex="0" role="radio" aria-checked="true">
           <div class="f-payment-option-left">
             <span class="f-radio"></span>
             Bank transfer / Virtual account
@@ -73,7 +71,7 @@
           <span class="f-payment-logo"></span>
         </div>
 
-        <div class="f-payment-option">
+        <div class="f-payment-option" data-method="Credit / debit card" tabindex="0" role="radio" aria-checked="false">
           <div class="f-payment-option-left">
             <span class="f-radio"></span>
             Credit / debit card
@@ -81,7 +79,7 @@
           <span class="f-payment-logo"></span>
         </div>
 
-        <div class="f-payment-option">
+        <div class="f-payment-option" data-method="E-wallet (GoPay, OVO, Dana)" tabindex="0" role="radio" aria-checked="false">
           <div class="f-payment-option-left">
             <span class="f-radio"></span>
             E-wallet (GoPay, OVO, Dana)
@@ -99,7 +97,7 @@
         <div class="f-summary-line"><span>Platform fee</span><span>Rp 25.000</span></div>
         <div class="f-summary-line"><span>Tax (PPN 11%)</span><span>Rp 47.500</span></div>
         <div class="f-summary-total"><span>Total</span><span>Rp 522.500</span></div>
-        <button class="f-btn f-btn-dark f-btn-block">Pay securely →</button>
+        <button class="f-btn f-btn-dark f-btn-block" id="pay-btn" type="button">Pay securely →</button>
         <div class="f-escrow-note">
           <strong>⌸ Escrow protected</strong>
           Watermark-free files unlock only after payment clears.
@@ -110,5 +108,8 @@
   </div>
 </div>
 
+<div class="f-toast" id="toast"></div>
+
+<script src="assets/tokogaris.js"></script>
 </body>
 </html>

@@ -8,95 +8,101 @@
 </head>
 <body class="tokogaris">
 
-<div class="f-frame-label">2 — Catalog / Browse</div>
-
 <header class="f-navbar">
   <a class="f-logo" href="tokogaris-home.html"><span class="f-logo-mark"></span>TokoGaris</a>
   <input type="checkbox" class="f-nav-toggle-input" id="nav-toggle" />
   <label class="f-nav-toggle" for="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></label>
   <nav class="f-nav-links">
     <a href="tokogaris-catalog.html">Browse designs</a>
-    <a href="#">Sell your work</a>
-    <a href="#">Pricing</a>
-    <a href="#">How it works</a>
+    <a href="#" data-toast="Halaman 'Sell your work' belum tersedia di prototype ini">Sell your work</a>
+    <a href="#" data-toast="Halaman 'Pricing' belum tersedia di prototype ini">Pricing</a>
+    <a href="#" data-toast="Halaman 'How it works' belum tersedia di prototype ini">How it works</a>
   </nav>
   <div class="f-nav-right">
-    <a class="f-btn f-btn-outline" href="#">Log in</a>
-    <a class="f-btn f-btn-dark" href="#">Get started</a>
+    <a class="f-btn f-btn-outline" href="#" data-toast="Alur login adalah demo pada prototype ini">Log in</a>
+    <a class="f-btn f-btn-dark" href="#" data-toast="Alur daftar adalah demo pada prototype ini">Get started</a>
   </div>
 </header>
 
 <div class="f-catalog-search">
-  <div class="f-search-bar">
+  <form class="f-search-bar" id="catalog-search-form">
     <span style="color:var(--f-faint);">⌕</span>
-    <input type="text" placeholder="Search 1,240+ production-ready designs..." />
-    <button class="f-btn f-btn-dark">Search</button>
-  </div>
+    <input type="text" id="catalog-search-input" placeholder="Search 1,240+ production-ready designs..." />
+    <button class="f-btn f-btn-dark" type="submit">Search</button>
+  </form>
 </div>
 
 <div class="f-catalog-body">
 
   <aside class="f-filters">
-    <h3>Filters</h3>
+    <div class="f-filters-head">
+      <h3>Filters</h3>
+      <button type="button" class="f-filters-reset" id="filters-reset">Reset</button>
+    </div>
 
-    <div class="f-filter-group">
+    <div class="f-filter-group" data-group="style">
       <h4>Style</h4>
       <div class="f-filter-pills">
-        <span class="f-pill is-active">Streetwear</span>
-        <span class="f-pill is-active">Formal</span>
-        <span class="f-pill">Casual</span>
-        <span class="f-pill">Ethnic</span>
-        <span class="f-pill">Techwear</span>
+        <button type="button" class="f-pill" data-value="Streetwear">Streetwear</button>
+        <button type="button" class="f-pill" data-value="Formal">Formal</button>
+        <button type="button" class="f-pill" data-value="Casual">Casual</button>
+        <button type="button" class="f-pill" data-value="Ethnic">Ethnic</button>
+        <button type="button" class="f-pill" data-value="Techwear">Techwear</button>
       </div>
     </div>
 
-    <div class="f-filter-group">
+    <div class="f-filter-group" data-group="market">
       <h4>Target market</h4>
       <div class="f-filter-pills">
-        <span class="f-pill is-active">Men</span>
-        <span class="f-pill">Women</span>
-        <span class="f-pill">Unisex</span>
-        <span class="f-pill">Kids</span>
+        <button type="button" class="f-pill" data-value="Men">Men</button>
+        <button type="button" class="f-pill" data-value="Women">Women</button>
+        <button type="button" class="f-pill" data-value="Unisex">Unisex</button>
+        <button type="button" class="f-pill" data-value="Kids">Kids</button>
       </div>
     </div>
 
-    <div class="f-filter-group">
+    <div class="f-filter-group" data-group="complexity">
       <h4>Production complexity</h4>
       <div class="f-filter-pills">
-        <span class="f-pill is-active">Simple</span>
-        <span class="f-pill is-active">Medium</span>
-        <span class="f-pill">Complex</span>
+        <button type="button" class="f-pill" data-value="Simple">Simple</button>
+        <button type="button" class="f-pill" data-value="Medium">Medium</button>
+        <button type="button" class="f-pill" data-value="Complex">Complex</button>
       </div>
     </div>
 
-    <div class="f-filter-group">
+    <div class="f-filter-group" data-group="license">
       <h4>License type</h4>
       <div class="f-filter-pills">
-        <span class="f-pill is-active">Standard</span>
-        <span class="f-pill">Exclusive</span>
-        <span class="f-pill">Royalty</span>
+        <button type="button" class="f-pill" data-value="Standard">Standard</button>
+        <button type="button" class="f-pill" data-value="Exclusive">Exclusive</button>
+        <button type="button" class="f-pill" data-value="Royalty">Royalty</button>
       </div>
     </div>
 
-    <div class="f-filter-group">
+    <div class="f-filter-group" data-group="price">
       <h4>Price range</h4>
       <div class="f-filter-pills">
-        <span class="f-pill is-active">&lt; 300k</span>
-        <span class="f-pill">300–600k</span>
-        <span class="f-pill">&gt; 600k</span>
+        <button type="button" class="f-pill" data-min="0" data-max="299999">&lt; 300k</button>
+        <button type="button" class="f-pill" data-min="300000" data-max="600000">300–600k</button>
+        <button type="button" class="f-pill" data-min="600001" data-max="999999999">&gt; 600k</button>
       </div>
     </div>
   </aside>
 
   <main class="f-catalog-results">
     <div class="f-results-head">
-      <h3>1,240 designs</h3>
-      <span class="f-sort">Sort: Newest ▾</span>
+      <h3><span id="result-count">1,240</span> designs</h3>
+      <select class="f-sort" id="sort-select">
+        <option value="newest">Sort: Newest</option>
+        <option value="price-asc">Sort: Price (low → high)</option>
+        <option value="price-desc">Sort: Price (high → low)</option>
+      </select>
     </div>
 
-    <div class="f-catalog-grid">
+    <div class="f-catalog-grid" id="catalog-grid">
 
-      <article class="f-design-card">
+      <article class="f-design-card" data-href="tokogaris-detail.html" data-style="Streetwear" data-market="Men" data-complexity="Simple" data-license="Standard" data-price="450000" tabindex="0">
+        <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
         <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
         <div class="f-design-card-body">
           <h3>Oversized Hoodie</h3>
@@ -105,7 +111,8 @@
         </div>
       </article>
 
-      <article class="f-design-card">
+      <article class="f-design-card" data-href="tokogaris-detail.html" data-style="Ethnic" data-market="Women" data-complexity="Medium" data-license="Exclusive" data-price="620000" tabindex="0">
+        <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
         <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
         <div class="f-design-card-body">
           <h3>Batik-Fusion Shirt</h3>
@@ -114,7 +121,8 @@
         </div>
       </article>
 
-      <article class="f-design-card">
+      <article class="f-design-card" data-href="tokogaris-detail.html" data-style="Casual" data-market="Unisex" data-complexity="Simple" data-license="Standard" data-price="380000" tabindex="0">
+        <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
         <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
         <div class="f-design-card-body">
           <h3>Linen Co-ord Set</h3>
@@ -123,7 +131,8 @@
         </div>
       </article>
 
-      <article class="f-design-card">
+      <article class="f-design-card" data-href="tokogaris-detail.html" data-style="Techwear" data-market="Men" data-complexity="Complex" data-license="Royalty" data-price="540000" tabindex="0">
+        <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
         <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
         <div class="f-design-card-body">
           <h3>Cargo Techwear</h3>
@@ -132,7 +141,8 @@
         </div>
       </article>
 
-      <article class="f-design-card">
+      <article class="f-design-card" data-href="tokogaris-detail.html" data-style="Ethnic" data-market="Women" data-complexity="Medium" data-license="Exclusive" data-price="700000" tabindex="0">
+        <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
         <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
         <div class="f-design-card-body">
           <h3>Kebaya Modern</h3>
@@ -141,7 +151,8 @@
         </div>
       </article>
 
-      <article class="f-design-card">
+      <article class="f-design-card" data-href="tokogaris-detail.html" data-style="Casual" data-market="Unisex" data-complexity="Simple" data-license="Standard" data-price="220000" tabindex="0">
+        <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
         <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
         <div class="f-design-card-body">
           <h3>Basic Tee Pack</h3>
@@ -150,7 +161,8 @@
         </div>
       </article>
 
-      <article class="f-design-card">
+      <article class="f-design-card" data-href="tokogaris-detail.html" data-style="Streetwear" data-market="Unisex" data-complexity="Medium" data-license="Standard" data-price="590000" tabindex="0">
+        <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
         <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
         <div class="f-design-card-body">
           <h3>Denim Jacket</h3>
@@ -159,7 +171,8 @@
         </div>
       </article>
 
-      <article class="f-design-card">
+      <article class="f-design-card" data-href="tokogaris-detail.html" data-style="Formal" data-market="Women" data-complexity="Medium" data-license="Royalty" data-price="480000" tabindex="0">
+        <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
         <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
         <div class="f-design-card-body">
           <h3>Modest Abaya</h3>
@@ -168,7 +181,8 @@
         </div>
       </article>
 
-      <article class="f-design-card">
+      <article class="f-design-card" data-href="tokogaris-detail.html" data-style="Casual" data-market="Kids" data-complexity="Simple" data-license="Standard" data-price="350000" tabindex="0">
+        <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
         <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
         <div class="f-design-card-body">
           <h3>Sport Jersey</h3>
@@ -178,8 +192,13 @@
       </article>
 
     </div>
+
+    <p class="f-empty-state" id="empty-state" hidden>Tidak ada desain yang cocok dengan filter ini. Coba <button type="button" id="empty-reset" class="f-empty-reset-link">reset filter</button>.</p>
   </main>
 </div>
 
+<div class="f-toast" id="toast"></div>
+
+<script src="assets/tokogaris.js"></script>
 </body>
 </html>
