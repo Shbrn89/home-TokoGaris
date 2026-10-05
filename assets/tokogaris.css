@@ -6,17 +6,22 @@
    ==================================================== */
 
 :root {
-  --f-bg: #f1f0ed;
-  --f-bg-soft: #ececea;
+  /* Warm cream / tan palette (matches the TokoGaris auth prototype moodboard) */
+  --f-bg: #f1ece2;
+  --f-bg-soft: #e9e2d2;
   --f-white: #ffffff;
-  --f-black: #111111;
-  --f-text: #16161a;
-  --f-muted: #6f6f6f;
-  --f-faint: #9a9a97;
-  --f-border: #e2e0db;
-  --f-border-strong: #d6d4ce;
-  --f-placeholder: #d9d8d4;
-  --f-badge-bg: #efeeea;
+  --f-black: #211f1b;
+  --f-text: #241f18;
+  --f-muted: #8d8577;
+  --f-faint: #b7ae9c;
+  --f-border: #e6dec9;
+  --f-border-strong: #d8cbac;
+  --f-placeholder: #ddd0b2;
+  --f-badge-bg: #e9e0cb;
+  --f-olive: #6b7257;
+  --f-olive-dark: #4b5140;
+  --f-tan: #c9b79c;
+  --f-shadow: 33, 29, 20;
   --f-radius-lg: 16px;
   --f-radius-md: 10px;
   --f-radius-sm: 7px;
@@ -46,6 +51,7 @@ body.tokogaris input, body.tokogaris button, body.tokogaris select { font-family
   background: var(--f-white);
   border-bottom: 1px solid var(--f-border);
   padding: 16px 32px;
+  box-shadow: 0 1px 0 rgba(var(--f-shadow), 0.02);
 }
 .f-logo {
   display: flex;
@@ -207,18 +213,18 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
 
 /* ---------------- Placeholder image blocks ---------------- */
 .f-placeholder {
-  background: var(--f-placeholder);
+  background: linear-gradient(160deg, #e4d9bf 0%, #ddd0b2 60%, #d3c4a0 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #85847f;
+  color: #8a7d60;
   text-align: center;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 .f-placeholder .f-ph-icon { font-size: 14px; display: block; margin-bottom: 4px; }
-.f-placeholder .f-ph-sub { font-weight: 500; text-transform: lowercase; color: #96958f; font-size: 10.5px; }
+.f-placeholder .f-ph-sub { font-weight: 500; text-transform: lowercase; color: #9c8f70; font-size: 10.5px; }
 
 /* ====================================================
    HOME / LANDING
@@ -228,6 +234,7 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
   padding: 72px 24px 56px;
   max-width: 760px;
   margin: 0 auto;
+  position: relative;
 }
 .f-eyebrow {
   display: inline-block;
@@ -265,7 +272,7 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
   padding: 6px 6px 6px 16px;
   max-width: 480px;
   margin: 0 auto 20px;
-  box-shadow: 0 10px 30px rgba(20,20,20,0.04);
+  box-shadow: 0 10px 30px rgba(var(--f-shadow), 0.07);
 }
 .f-search-bar input {
   flex: 1;
@@ -313,7 +320,7 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
 }
 .f-design-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 32px rgba(17,17,17,0.08);
+  box-shadow: 0 16px 32px rgba(var(--f-shadow), 0.12);
   border-color: var(--f-border-strong);
 }
 .f-design-card:focus-visible { outline: 2px solid var(--f-black); outline-offset: 2px; }
@@ -371,6 +378,7 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
   border: 1px solid var(--f-border);
   border-radius: var(--f-radius-md);
   overflow: hidden;
+  box-shadow: 0 10px 28px rgba(var(--f-shadow), 0.05);
 }
 .f-step {
   padding: 20px 24px;
@@ -507,7 +515,7 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
 }
 .f-license-option:hover { border-color: var(--f-text); }
 .f-license-option:focus-visible { outline: 2px solid var(--f-black); outline-offset: 2px; }
-.f-license-option.is-selected { border-color: var(--f-black); border-width: 1.5px; box-shadow: 0 2px 10px rgba(17,17,17,0.06); }
+.f-license-option.is-selected { border-color: var(--f-black); border-width: 1.5px; box-shadow: 0 2px 10px rgba(var(--f-shadow), 0.1); }
 .f-license-option .f-radio {
   width: 17px; height: 17px; border-radius: 50%;
   border: 1.6px solid var(--f-border-strong);
@@ -585,8 +593,8 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
 .f-payment-option.is-selected { border-color: var(--f-black); border-width: 1.5px; }
 
 .f-btn-dark:disabled, .f-btn-dark[aria-disabled="true"] {
-  background: var(--f-placeholder);
-  color: #9a9a97;
+  background: var(--f-border-strong);
+  color: #a89a79;
   cursor: not-allowed;
 }
 #pay-btn.is-processing { opacity: 0.7; cursor: wait; }
@@ -752,7 +760,7 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
   border-radius: var(--f-radius-md);
   font-size: 13px;
   font-weight: 600;
-  box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 30px rgba(var(--f-shadow), 0.3);
   z-index: 999;
   opacity: 0;
   pointer-events: none;
@@ -795,7 +803,7 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
     background: #fff;
     border-bottom: 1px solid var(--f-border);
     padding: 16px 24px 20px;
-    box-shadow: 0 14px 24px rgba(17,17,17,0.08);
+    box-shadow: 0 14px 24px rgba(var(--f-shadow), 0.12);
     z-index: 50;
   }
   .f-nav-toggle-input:checked ~ .f-nav-links { display: flex; }
