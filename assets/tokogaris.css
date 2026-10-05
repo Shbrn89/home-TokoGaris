@@ -1,6 +1,6 @@
 /* ====================================================
-   FASSET — B2B Fashion Asset Marketplace Prototype
-   Shared styles for all Fasset screens
+   TokoGaris — B2B Fashion Asset Marketplace Prototype
+   Shared styles for all TokoGaris screens
    Palette follows the same CSS-variable approach as
    assets/style.css used across this repo.
    ==================================================== */
@@ -25,7 +25,7 @@
 
 * { box-sizing: border-box; }
 
-html, body.fasset {
+html, body.tokogaris {
   margin: 0;
   padding: 0;
   font-family: var(--f-font);
@@ -34,9 +34,9 @@ html, body.fasset {
   -webkit-font-smoothing: antialiased;
 }
 
-body.fasset a { color: inherit; text-decoration: none; }
-body.fasset ul { margin: 0; padding: 0; list-style: none; }
-body.fasset input, body.fasset button, body.fasset select { font-family: var(--f-font); }
+body.tokogaris a { color: inherit; text-decoration: none; }
+body.tokogaris ul { margin: 0; padding: 0; list-style: none; }
+body.tokogaris input, body.tokogaris button, body.tokogaris select { font-family: var(--f-font); }
 
 /* ---------------- Frame label (per-screen caption, mirrors the spec shots) ---------------- */
 .f-frame-label {
@@ -114,8 +114,8 @@ body.fasset input, body.fasset button, body.fasset select { font-family: var(--f
 }
 .f-btn-dark { background: var(--f-black); color: #fff; }
 .f-btn-outline { background: #fff; color: var(--f-text); border: 1px solid var(--f-border-strong); }
-body.fasset a.f-btn-dark { color: #fff; }
-body.fasset a.f-btn-outline { color: var(--f-text); }
+body.tokogaris a.f-btn-dark { color: #fff; }
+body.tokogaris a.f-btn-outline { color: var(--f-text); }
 .f-btn-block { width: 100%; height: 46px; }
 .f-btn-sm { height: 32px; padding: 0 14px; font-size: 12.5px; }
 
