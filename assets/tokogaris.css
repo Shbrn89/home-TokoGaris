@@ -97,6 +97,30 @@ body.tokogaris input, body.tokogaris button, body.tokogaris select { font-family
 .f-navbar-simple { justify-content: flex-start; gap: 48px; }
 .f-navbar-simple .f-nav-right { margin-left: auto; }
 
+/* ---------------- Mobile nav toggle (hamburger, CSS-only) ---------------- */
+.f-nav-toggle-input { display: none; }
+.f-nav-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: 1px solid var(--f-border-strong);
+  border-radius: var(--f-radius-sm);
+  cursor: pointer;
+  background: #fff;
+}
+.f-nav-toggle span {
+  display: block;
+  width: 16px;
+  height: 1.6px;
+  background: var(--f-text);
+  border-radius: 1px;
+}
+
 /* ---------------- Buttons ---------------- */
 .f-btn {
   display: inline-flex;
@@ -621,7 +645,30 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
   .f-checkout-layout { flex-direction: column; }
   .f-stat-grid { grid-template-columns: repeat(2, 1fr); }
   .f-form-grid { grid-template-columns: 1fr; }
-  .f-nav-links { display: none; }
+
+  /* Nav collapses into a toggleable dropdown instead of disappearing.
+     DOM order is: logo, nav-toggle, nav-links (absolute, out of flow),
+     nav-right — so margin-left:auto on the toggle pushes it next to
+     nav-right while the logo stays flush left. */
+  .f-navbar { position: relative; flex-wrap: wrap; justify-content: flex-start; }
+  .f-nav-toggle { display: flex; margin-left: auto; }
+  .f-nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    background: #fff;
+    border-bottom: 1px solid var(--f-border);
+    padding: 16px 24px 20px;
+    box-shadow: 0 14px 24px rgba(17,17,17,0.08);
+    z-index: 50;
+  }
+  .f-nav-toggle-input:checked ~ .f-nav-links { display: flex; }
+
   .f-catalog-body { flex-direction: column; }
   .f-filters { width: 100%; }
   .f-dash-layout { flex-direction: column; }
@@ -633,4 +680,6 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
   .f-steps-box { grid-template-columns: 1fr; }
   .f-step { border-right: none; border-bottom: 1px solid var(--f-border); }
   .f-hero h1 { font-size: 28px; }
+  .f-nav-right { gap: 6px; }
+  .f-nav-right .f-btn { padding: 0 12px; font-size: 12.5px; }
 }
