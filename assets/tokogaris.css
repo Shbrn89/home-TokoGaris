@@ -38,14 +38,6 @@ body.tokogaris a { color: inherit; text-decoration: none; }
 body.tokogaris ul { margin: 0; padding: 0; list-style: none; }
 body.tokogaris input, body.tokogaris button, body.tokogaris select { font-family: var(--f-font); }
 
-/* ---------------- Frame label (per-screen caption, mirrors the spec shots) ---------------- */
-.f-frame-label {
-  padding: 10px 18px;
-  font-size: 12px;
-  color: var(--f-faint);
-  background: var(--f-bg);
-}
-
 /* ---------------- Top navbar ---------------- */
 .f-navbar {
   display: flex;
@@ -170,12 +162,48 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
   border-radius: 20px;
   font-size: 12.5px;
   font-weight: 600;
+  font-family: var(--f-font);
   cursor: pointer;
   border: 1px solid var(--f-border-strong);
   background: #fff;
   color: var(--f-text);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
 }
+.f-pill:hover { border-color: var(--f-black); }
+.f-pill:active { transform: scale(0.96); }
 .f-pill.is-active { background: var(--f-black); color: #fff; border-color: var(--f-black); }
+
+.f-filters-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.f-filters-head h3 { font-size: 14px; font-weight: 700; margin: 0; }
+.f-filters-reset {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--f-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: var(--f-font);
+}
+.f-filters-reset:hover { color: var(--f-text); }
+
+.f-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--f-muted);
+  font-size: 13.5px;
+}
+.f-empty-reset-link {
+  background: none;
+  border: none;
+  color: var(--f-text);
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 13.5px;
+  font-family: var(--f-font);
+  padding: 0;
+}
 
 /* ---------------- Placeholder image blocks ---------------- */
 .f-placeholder {
@@ -279,8 +307,18 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
   border: 1px solid var(--f-border);
   border-radius: var(--f-radius-md);
   overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
-.f-design-card .f-placeholder { height: 170px; }
+.f-design-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(17,17,17,0.08);
+  border-color: var(--f-border-strong);
+}
+.f-design-card:focus-visible { outline: 2px solid var(--f-black); outline-offset: 2px; }
+.f-design-card .f-placeholder { height: 170px; transition: filter 0.18s ease; }
+.f-design-card:hover .f-placeholder { filter: brightness(0.97); }
 .f-design-card-body { padding: 14px 16px 16px; }
 .f-design-card-body h3 { font-size: 13.5px; font-weight: 700; margin: 0 0 3px; color: var(--f-black); }
 .f-design-card-body .f-by { font-size: 11.5px; color: var(--f-faint); margin: 0 0 10px; }
@@ -290,6 +328,36 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
   justify-content: space-between;
 }
 .f-price { font-size: 13.5px; font-weight: 700; color: var(--f-black); }
+
+.f-fav-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--f-border-strong);
+  background: rgba(255,255,255,0.92);
+  color: var(--f-text);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.12s ease, color 0.12s ease;
+}
+.f-fav-btn:hover { transform: scale(1.08); }
+.f-fav-btn.is-active { color: #d6435a; border-color: #d6435a; }
+
+.f-card-grid.is-filtering .f-design-card,
+.f-catalog-grid.is-filtering .f-design-card {
+  animation: f-fade-in 0.2s ease;
+}
+@keyframes f-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 .f-steps-bar {
   max-width: 1180px;
@@ -435,8 +503,11 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
   padding: 14px 16px;
   margin-bottom: 10px;
   cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
-.f-license-option.is-selected { border-color: var(--f-black); border-width: 1.5px; }
+.f-license-option:hover { border-color: var(--f-text); }
+.f-license-option:focus-visible { outline: 2px solid var(--f-black); outline-offset: 2px; }
+.f-license-option.is-selected { border-color: var(--f-black); border-width: 1.5px; box-shadow: 0 2px 10px rgba(17,17,17,0.06); }
 .f-license-option .f-radio {
   width: 17px; height: 17px; border-radius: 50%;
   border: 1.6px solid var(--f-border-strong);
@@ -506,8 +577,19 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
   margin-bottom: 10px;
   font-size: 13px;
   font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
 }
+.f-payment-option:hover { border-color: var(--f-text); }
+.f-payment-option:focus-visible { outline: 2px solid var(--f-black); outline-offset: 2px; }
 .f-payment-option.is-selected { border-color: var(--f-black); border-width: 1.5px; }
+
+.f-btn-dark:disabled, .f-btn-dark[aria-disabled="true"] {
+  background: var(--f-placeholder);
+  color: #9a9a97;
+  cursor: not-allowed;
+}
+#pay-btn.is-processing { opacity: 0.7; cursor: wait; }
 .f-payment-option-left { display: flex; align-items: center; gap: 12px; }
 .f-payment-option .f-radio { width: 16px; height: 16px; border-radius: 50%; border: 1.6px solid var(--f-border-strong); display: flex; align-items: center; justify-content: center; }
 .f-payment-option.is-selected .f-radio { border-color: var(--f-black); }
@@ -587,18 +669,31 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
 }
 .f-toggle {
   width: 38px; height: 22px; border-radius: 20px;
-  background: var(--f-black);
+  background: var(--f-placeholder);
   position: relative;
   flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.18s ease;
 }
 .f-toggle::after {
-  content: ""; position: absolute; top: 3px; right: 3px;
+  content: ""; position: absolute; top: 3px; left: 3px;
   width: 16px; height: 16px; border-radius: 50%; background: #fff;
+  transition: left 0.18s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
+.f-toggle.is-on { background: var(--f-black); }
+.f-toggle.is-on::after { left: 19px; }
+.f-toggle:focus-visible { outline: 2px solid var(--f-black); outline-offset: 2px; }
 .f-toggle-text .f-tt-title { font-size: 12.5px; font-weight: 700; margin: 0 0 2px; }
 .f-toggle-text p { font-size: 11px; color: var(--f-muted); margin: 0; }
 
 .f-form-actions { display: flex; justify-content: flex-end; gap: 10px; }
+
+.f-dash-sidebar a { cursor: pointer; transition: background 0.15s ease, color 0.15s ease; }
+.f-table tbody tr { transition: background 0.12s ease; }
+.f-table tbody tr:hover { background: var(--f-bg-soft); }
 
 .f-table-card { background: #fff; border: 1px solid var(--f-border); border-radius: var(--f-radius-md); overflow: hidden; }
 .f-table-card h3 { font-size: 15px; font-weight: 700; margin: 0; padding: 20px 24px 0; }
@@ -633,6 +728,42 @@ body.tokogaris a.f-btn-outline { color: var(--f-text); }
   border-radius: 20px;
 }
 .f-user-dot { width: 30px; height: 30px; border-radius: 50%; background: var(--f-placeholder); }
+
+/* ---------------- Detail page thumbnails (now buttons) ---------------- */
+.f-thumb {
+  border: 1px solid var(--f-border);
+  cursor: pointer;
+  font-family: var(--f-font);
+  transition: border-color 0.15s ease, opacity 0.15s ease;
+  opacity: 0.75;
+}
+.f-thumb:hover { opacity: 1; border-color: var(--f-border-strong); }
+.f-thumb.is-active { opacity: 1; border-color: var(--f-black); border-width: 1.5px; }
+
+/* ---------------- Toast notifications ---------------- */
+.f-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: var(--f-black);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: var(--f-radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  max-width: calc(100vw - 48px);
+  text-align: center;
+}
+.f-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
 
 /* ====================================================
    RESPONSIVE

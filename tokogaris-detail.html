@@ -8,21 +8,19 @@
 </head>
 <body class="tokogaris">
 
-<div class="f-frame-label">3 — Design Detail + Licensing</div>
-
 <header class="f-navbar">
   <a class="f-logo" href="tokogaris-home.html"><span class="f-logo-mark"></span>TokoGaris</a>
   <input type="checkbox" class="f-nav-toggle-input" id="nav-toggle" />
   <label class="f-nav-toggle" for="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></label>
   <nav class="f-nav-links">
     <a href="tokogaris-catalog.html">Browse designs</a>
-    <a href="#">Sell your work</a>
-    <a href="#">Pricing</a>
-    <a href="#">How it works</a>
+    <a href="#" data-toast="Halaman 'Sell your work' belum tersedia di prototype ini">Sell your work</a>
+    <a href="#" data-toast="Halaman 'Pricing' belum tersedia di prototype ini">Pricing</a>
+    <a href="#" data-toast="Halaman 'How it works' belum tersedia di prototype ini">How it works</a>
   </nav>
   <div class="f-nav-right">
-    <a class="f-btn f-btn-outline" href="#">Log in</a>
-    <a class="f-btn f-btn-dark" href="#">Get started</a>
+    <a class="f-btn f-btn-outline" href="#" data-toast="Alur login adalah demo pada prototype ini">Log in</a>
+    <a class="f-btn f-btn-dark" href="#" data-toast="Alur daftar adalah demo pada prototype ini">Get started</a>
   </div>
 </header>
 
@@ -33,17 +31,17 @@
 <div class="f-detail-body">
 
   <div class="f-detail-media">
-    <div class="f-placeholder f-main-preview">
+    <div class="f-placeholder f-main-preview" id="main-preview">
       <span>
-        <span class="f-ph-icon" style="font-size:15px;">⌸ WATERMARKED PREVIEW</span>
+        <span class="f-ph-icon" style="font-size:15px;" id="main-preview-label">⌸ WATERMARKED PREVIEW · view 1</span>
         <span class="f-ph-sub">Full-resolution files unlocked after purchase</span>
       </span>
     </div>
-    <div class="f-thumb-row">
-      <div class="f-placeholder">view 1</div>
-      <div class="f-placeholder">view 2</div>
-      <div class="f-placeholder">view 3</div>
-      <div class="f-placeholder">view 4</div>
+    <div class="f-thumb-row" id="thumb-row">
+      <button type="button" class="f-placeholder f-thumb is-active" data-view="1">view 1</button>
+      <button type="button" class="f-placeholder f-thumb" data-view="2">view 2</button>
+      <button type="button" class="f-placeholder f-thumb" data-view="3">view 3</button>
+      <button type="button" class="f-placeholder f-thumb" data-view="4">view 4</button>
     </div>
   </div>
 
@@ -64,7 +62,7 @@
 
     <div class="f-license-label">Choose a license</div>
 
-    <div class="f-license-option is-selected">
+    <div class="f-license-option is-selected" data-license="Standard license" data-price="Rp 450.000" tabindex="0" role="radio" aria-checked="true">
       <span class="f-radio"></span>
       <div class="f-license-text">
         <p class="f-lic-name">Standard license</p>
@@ -73,7 +71,7 @@
       <span class="f-license-price">Rp 450.000</span>
     </div>
 
-    <div class="f-license-option">
+    <div class="f-license-option" data-license="Exclusive license" data-price="Rp 3.500.000" tabindex="0" role="radio" aria-checked="false">
       <span class="f-radio"></span>
       <div class="f-license-text">
         <p class="f-lic-name">Exclusive license</p>
@@ -82,7 +80,7 @@
       <span class="f-license-price">Rp 3.500.000</span>
     </div>
 
-    <div class="f-license-option">
+    <div class="f-license-option" data-license="Royalty license" data-price="Rp 150.000 +3%" tabindex="0" role="radio" aria-checked="false">
       <span class="f-radio"></span>
       <div class="f-license-text">
         <p class="f-lic-name">Royalty license</p>
@@ -91,8 +89,8 @@
       <span class="f-license-price">Rp 150.000 +3%</span>
     </div>
 
-    <a href="tokogaris-checkout.html" class="f-btn f-btn-dark f-btn-block" style="margin-top:16px;">Buy license →</a>
-    <button class="f-btn f-btn-outline f-btn-block" style="margin-top:10px;">Add to cart</button>
+    <a href="tokogaris-checkout.html" class="f-btn f-btn-dark f-btn-block" style="margin-top:16px;" id="buy-license-btn">Buy <span id="selected-license-name">Standard</span> license →</a>
+    <button class="f-btn f-btn-outline f-btn-block" style="margin-top:10px;" id="add-cart-btn" type="button">Add to cart</button>
 
     <div class="f-notice-box">
       <p class="f-notice-title">⌸ Copyright protected</p>
@@ -110,5 +108,8 @@
 
 </div>
 
+<div class="f-toast" id="toast"></div>
+
+<script src="assets/tokogaris.js"></script>
 </body>
 </html>

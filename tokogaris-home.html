@@ -8,21 +8,19 @@
 </head>
 <body class="tokogaris">
 
-<div class="f-frame-label">1 — Home / Landing</div>
-
 <header class="f-navbar">
   <div class="f-logo"><span class="f-logo-mark"></span>TokoGaris</div>
   <input type="checkbox" class="f-nav-toggle-input" id="nav-toggle" />
   <label class="f-nav-toggle" for="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></label>
   <nav class="f-nav-links">
     <a href="tokogaris-catalog.html">Browse designs</a>
-    <a href="#">Sell your work</a>
-    <a href="#">Pricing</a>
-    <a href="#">How it works</a>
+    <a href="#" data-toast="Halaman 'Sell your work' belum tersedia di prototype ini">Sell your work</a>
+    <a href="#" data-toast="Halaman 'Pricing' belum tersedia di prototype ini">Pricing</a>
+    <a href="#" data-toast="Halaman 'How it works' belum tersedia di prototype ini">How it works</a>
   </nav>
   <div class="f-nav-right">
-    <a class="f-btn f-btn-outline" href="#">Log in</a>
-    <a class="f-btn f-btn-dark" href="#">Get started</a>
+    <a class="f-btn f-btn-outline" href="#" data-toast="Alur login adalah demo pada prototype ini">Log in</a>
+    <a class="f-btn f-btn-dark" href="#" data-toast="Alur daftar adalah demo pada prototype ini">Get started</a>
   </div>
 </header>
 
@@ -31,15 +29,15 @@
   <h1>Ready-to-buy fashion designs,<br />straight to production.</h1>
   <p>Buy production-ready clothing designs from independent designers. License, download, and take them to your manufacturer the same day.</p>
 
-  <div class="f-search-bar">
+  <form class="f-search-bar" id="hero-search-form">
     <span style="color:var(--f-faint);">⌕</span>
-    <input type="text" placeholder="Search designs by style, garment, target market..." />
-    <button class="f-btn f-btn-dark">Search</button>
-  </div>
+    <input type="text" id="hero-search-input" placeholder="Search designs by style, garment, target market..." />
+    <button class="f-btn f-btn-dark" type="submit">Search</button>
+  </form>
 
   <div class="f-hero-ctas">
     <a href="tokogaris-catalog.html" class="f-btn f-btn-dark">Browse catalog</a>
-    <a href="#" class="f-btn f-btn-outline">Sell your designs</a>
+    <a href="#" class="f-btn f-btn-outline" data-toast="Alur pendaftaran desainer adalah demo pada prototype ini">Sell your designs</a>
   </div>
 </section>
 
@@ -48,9 +46,10 @@
     <h2>Featured designs</h2>
     <a href="tokogaris-catalog.html">View all →</a>
   </div>
-  <div class="f-card-grid">
+  <div class="f-card-grid" id="featured-grid">
 
-    <article class="f-design-card">
+    <article class="f-design-card" data-href="tokogaris-detail.html" tabindex="0">
+      <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
       <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
       <div class="f-design-card-body">
         <h3>Oversized Streetwear Hoodie</h3>
@@ -62,7 +61,8 @@
       </div>
     </article>
 
-    <article class="f-design-card">
+    <article class="f-design-card" data-href="tokogaris-detail.html" tabindex="0">
+      <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
       <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
       <div class="f-design-card-body">
         <h3>Batik-Fusion Shirt</h3>
@@ -74,7 +74,8 @@
       </div>
     </article>
 
-    <article class="f-design-card">
+    <article class="f-design-card" data-href="tokogaris-detail.html" tabindex="0">
+      <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
       <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
       <div class="f-design-card-body">
         <h3>Minimalist Linen Set</h3>
@@ -86,7 +87,8 @@
       </div>
     </article>
 
-    <article class="f-design-card">
+    <article class="f-design-card" data-href="tokogaris-detail.html" tabindex="0">
+      <button class="f-fav-btn" type="button" aria-label="Save to favorites">♡</button>
       <div class="f-placeholder"><span><span class="f-ph-icon">⌸ WATERMARK</span><span class="f-ph-sub">design preview</span></span></div>
       <div class="f-design-card-body">
         <h3>Techwear Cargo Pants</h3>
@@ -123,5 +125,8 @@
   <div class="f-footer-right">Copyright protected · Secure licensing · Indonesia</div>
 </footer>
 
+<div class="f-toast" id="toast"></div>
+
+<script src="assets/tokogaris.js"></script>
 </body>
 </html>
